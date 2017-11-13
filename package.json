@@ -4,7 +4,9 @@
   "description": "frontend code for the laceeditor",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start:dev": "cd dist && python -m SimpleHTTPServer $PORT"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,11 @@
   },
   "homepage": "https://github.com/omriz/laceeditor_fe#readme",
   "devDependencies": {
-    "webpack": "^3.8.1"
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
+  },
+  "dependencies": {
+    "brace": "^0.10.0",
+    "material-design-lite": "^1.3.0"
   }
 }
