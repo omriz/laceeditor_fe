@@ -102,10 +102,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* global ace */
 var editor = __WEBPACK_IMPORTED_MODULE_0_brace___default.a.edit("editor");
-editor.setTheme("ace/theme/monokai");
-editor.getSession().setMode("ace/mode/python");
-editor.setKeyboardHandler("ace/keyboard/vim");
-editor.setAutoScrollEditorIntoView(true);
 
 /* Binding Save and Load commands */
 function saveBuffer() {
@@ -116,13 +112,28 @@ function loadBuffer() {
     alert('Load!');
 }
 
-//editor.commands.addCommand(
-//    name: 'save',
-//     bindKey: { win: "Ctrl-S", mac: "Command-S" },                
-//     exec: function() {
-//         editor.insert("Key binded!");
-//     }
-//     )
+/* Binding the save and load */
+editor.commands.addCommand({
+     name: 'save',
+     bindKey: { win: "Ctrl-S", mac: "Command-S" },                
+     exec: saveBuffer
+});
+
+editor.commands.addCommand({
+     name: 'load',
+     bindKey: { win: "Ctrl-O", mac: "Command-O" },                
+     exec: loadBuffer
+});
+
+document.getElementById('save_button').addEventListener('click', saveBuffer);
+
+/* initalization*/
+editor.setTheme("ace/theme/monokai");
+editor.getSession().setMode("ace/mode/python");
+//editor.setKeyboardHandler("ace/keyboard/vim");
+editor.setAutoScrollEditorIntoView(true);
+editor.resize(true);
+
 
 /***/ }),
 /* 2 */
