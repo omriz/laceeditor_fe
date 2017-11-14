@@ -132,7 +132,7 @@ editor.setTheme("ace/theme/monokai");
 editor.getSession().setMode("ace/mode/python");
 //editor.setKeyboardHandler("ace/keyboard/vim");
 editor.setAutoScrollEditorIntoView(true);
-editor.resize(true);
+window.onload=function(){editor.resize(true)};
 
 
 /***/ }),
